@@ -1,0 +1,30 @@
+import java.util.HashMap;
+import java.util.Map;
+
+class HelloWorld {
+private static Map<String, Integer> cache = new HashMap<>();
+
+public static void main(String[] args) {
+    int n = 5, i, j;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j <= i; j++) {
+            System.out.print(array(i, j) + " ");
+        }
+        System.out.println();
+    }
+}
+
+private static int array(int row, int col) 
+{
+    if (col==0||col==row)
+        return 1;
+
+    String key = row + "-" + col;
+    if (cache.containsKey(key))
+        return cache.get(key);
+
+    int result = array(row - 1, col - 1) + array(row - 1, col);
+    cache.put(key, result);
+    return result;
+}
+}
