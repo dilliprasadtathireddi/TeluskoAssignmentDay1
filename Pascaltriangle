@@ -1,0 +1,28 @@
+public class Pascalstriangle
+{
+public static void main(String[] args)
+{
+int n = 7;
+for(int i=0;i<n;i++)
+{
+for(int j=0;j<=i;j++)
+{
+System.out.print(arry(i,j)+" ");
+}
+System.out.println();
+}
+}
+public static int arry(int row, int col)
+{
+if (col==0||col==row)
+{
+return 1;
+
+    }
+        else 
+    {
+        return arry(row-1,col-1)+arry(row-1,col);
+    }
+}
+}
+
